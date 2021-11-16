@@ -67,7 +67,5 @@ public class GestorCompras {
         }
     }
 
-    public void hazordencompra() {
-      
-    }
+
 }

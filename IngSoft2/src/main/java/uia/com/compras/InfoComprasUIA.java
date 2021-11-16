@@ -86,6 +86,8 @@ public class InfoComprasUIA {
 		System.out.println("Name:\t" + this.getName());
 		System.out.println("descripcion:\t" + this.getDescripcion());
 		System.out.println("Pedido Proveedor:\t" + this.getPedidoProveedor());
+		System.out.println("tYPE:\t" + this.getType());
+		System.out.println("iTEMS 	:\t" + this.getItems());
 
 	}
 }

@@ -51,6 +51,19 @@ public class PeticionOrdenCompra extends InfoComprasUIA
         super(-1, "");
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        PeticionOrdenCompra that = (PeticionOrdenCompra) o;
+        return cantidad == that.cantidad && Objects.equals(unidad, that.unidad) && Objects.equals(codigo, that.codigo);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(cantidad, unidad, codigo);
+    }
+
     public void agregaItems(ListaReportesNivelStock miReporteNS)
     {
         PeticionOrdenCompra nodo;
@@ -58,8 +71,8 @@ public class PeticionOrdenCompra extends InfoComprasUIA
             InfoComprasUIA miNodo = miReporteNS.getItems().get(i);
             List<InfoComprasUIA> miLista;
             if (miNodo.getPedidoProveedor() > 0) {
-                nodo = new PeticionOrdenCompra(miNodo.getId(), miNodo.getName(), miNodo.getDescripcion(),
-                        "PZA", miNodo.getPedidoProveedor(), "itemsOPC");
+                nodo = new PeticionOrdenCompra(miNodo.getId(), miNodo.getName(),miNodo.getDescripcion(),
+                        "PZA", miNodo.getPedidoProveedor(),"itemsOPC");
                 if (this.getItems() == null) {
                     miLista = new ArrayList<InfoComprasUIA>();
                     this.setItems((List<InfoComprasUIA>) miLista);
